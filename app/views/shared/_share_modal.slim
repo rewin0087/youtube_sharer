@@ -9,10 +9,8 @@
         .modal-body
           .errors.alert.alert-danger
           = f.input :youtube_url
-          = f.input :title
-          = f.input :description
           = f.input :user_id, as: :hidden
 
         .modal-footer
           button.btn.btn-secondary data-dismiss="modal" type="button"  Close
-          = f.button :submit, class: 'btn btn-success'
+          = f.button :submit, class: 'btn btn-success', data: { disable_with: 'Sharing...' }

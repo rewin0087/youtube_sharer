@@ -279,6 +279,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)
+  nokogiri
   pg
   pry-rails
   puma (~> 4.1)

@@ -31,6 +31,7 @@ gem 'slim-rails' # template engine
 gem 'devise' # authentication
 gem 'figaro' # environment config
 gem 'rake', '< 11' # Removes a method that rspec-core < 3.4 depends on
+gem 'nokogiri'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

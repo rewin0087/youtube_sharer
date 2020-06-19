@@ -1,7 +1,7 @@
 <% if @post.errors.empty? %>
   $('.posts-container').html("<%= escape_javascript(render 'posts/posts') %>")
-  $('#share-modal .errors').hide()
-  $('#share-modal form')[0].reset()
+  $('#share-modal').modal('hide')
+  $('#share-modal').replaceWith("<%= escape_javascript(render 'shared/share_modal') %>")
 <% else %>
   $('#share-modal .errors').html("<%= @post.errors.full_messages.join(', ')%>").show()
 <% end %>

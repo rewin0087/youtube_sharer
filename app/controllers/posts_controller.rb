@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
     if @post.valid? && @post.save
       @posts = Post.page(params[:page])
+      @post = Post.new(user: current_user)
     end
   end
 

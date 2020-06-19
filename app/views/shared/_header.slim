@@ -1,0 +1,17 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.fixed-top
+  a.navbar-brand href="#"  Youtube Sharer
+  button.navbar-toggler aria-controls="navbarSupportedContent" aria-expanded="false" aria-label=("Toggle navigation") data-target="#navbarSupportedContent" data-toggle="collapse" type="button"
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.ml-auto
+      - if current_user
+        li.nav-item.active
+          a.nav-link href='#'
+            = "Welcome #{current_user.email}"
+        li.nav-item
+          a.nav-link.btn.btn-outline-success.mr-2 href="#" data-toggle="modal" data-target="#share-modal"  Share a movie
+        li.nav-item
+          = link_to 'Logout', destroy_user_session_path, title: 'Logout', class: 'nav-link btn btn-outline-secondary'
+      - else
+        li.nav-item
+          = link_to 'Login', new_user_session_path, title: 'Logout', class: 'nav-link btn btn-outline-secondary'

@@ -1,0 +1,6 @@
+- flash.delete(:timedout).each do |_, v|
+  .alert.alert-dismissible class="alert-info mT10" role='alert'
+    button.close type='button' data-dismiss='alert' aria-label='Close'
+      span aria-hidden='true' &times;
+    = v
+

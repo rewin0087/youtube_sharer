@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    meta name='viewport' content='initial-scale=1.0, width=device-width'
+    title YoutubeShare
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+body class=controller_name
+  = render 'shared/header'
+  .wrapper
+    .container-fluid
+      .flash-messages
+        = render 'shared/flash'
+      = yield
+  = javascript_pack_tag 'application', 'data-turbolinks-track' => 'reload'

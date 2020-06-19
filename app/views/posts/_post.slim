@@ -9,5 +9,7 @@
       = image_tag('thumbs-down.svg')
     small
       = "Shared by #{post.user.email}"
-    p.mt-2
-      = post.description
+    .mt-2
+      p Description:
+      p
+        = post.description

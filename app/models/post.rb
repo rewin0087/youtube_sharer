@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   default_scope -> { order('created_at DESC') }
   validates :youtube_url, presence: true
-  validates :youtube_url, format: { with: URI.regexp }, if: Proc.new { |p| p.youtube_url.present? }
+  validate :validate_youtube_url
 
   before_save :scrape_page
 
@@ -21,5 +21,11 @@ class Post < ApplicationRecord
       info = ::FetchYoutubeVideoInfo.new(youtube_url).call
       self.title = info[:title]
       self.description = info[:description]
+    end
+
+    def validate_youtube_url
+      youtube_url.present? && URI.parse(youtube_url)
+    rescue URI::InvalidURIError
+      self.errors['youtube_url'] << 'must be a valid URL'
     end
 end

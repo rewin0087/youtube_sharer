@@ -56,14 +56,12 @@ RSpec.describe 'Posts' do
 
       before do
         allow(FetchYoutubeVideoInfo).to receive_message_chain(:new, :call).and_return(mock_youtube_info)
+
+        sign_in user
+        post '/posts.js', params: params
       end
 
       context 'with valid youtube_url' do
-        before do
-          sign_in user
-          post '/posts.js', params: params
-        end
-
         it 'be successful' do
           expect(response).to have_http_status :ok
           expect(response).to render_template('posts/create')

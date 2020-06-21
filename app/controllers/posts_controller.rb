@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index]
 
   def index
-    @new_post = Post.new(user: current_user)
+    @new_post = Post.new(user: current_user) if current_user
     @posts = Post.page(params[:page])
   end
 

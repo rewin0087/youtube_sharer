@@ -36,8 +36,7 @@ RSpec.describe 'Posts' do
 
         new_post = assigns(:new_post)
 
-        expect(new_post.id).to be_nil
-        expect(new_post.user).to be_nil
+        expect(new_post).to be_nil
 
         posts = assigns(:posts).to_a
 

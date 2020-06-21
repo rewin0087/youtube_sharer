@@ -3,7 +3,7 @@ require 'open-uri'
 class FetchYoutubeVideoInfo
 
   def initialize(url)
-    @doc = Nokogiri::HTML(open(url))
+    @doc = Nokogiri::HTML(URI.open(url))
   end
 
   def call

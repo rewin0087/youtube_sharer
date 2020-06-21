@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index]
 
   def index
-    @post = Post.new(user: current_user)
+    @new_post = Post.new(user: current_user)
     @posts = Post.page(params[:page])
   end
 
@@ -11,13 +11,13 @@ class PostsController < ApplicationController
 
     if @post.valid? && @post.save
       @posts = Post.page(params[:page])
-      @post = Post.new(user: current_user)
+      @new_post = Post.new(user: current_user)
     end
   end
 
   private
 
     def post_params
-      params.require(:post).permit(:youtube_url, :user_id, :title, :description)
+      params.require(:post).permit(:youtube_url, :user_id)
     end
 end

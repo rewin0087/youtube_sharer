@@ -5,12 +5,11 @@
         h5.modal-title Share a Youtube movie
         button.close aria-label="Close" data-dismiss="modal" type="button"
           span aria-hidden="true"  &times;
-      = simple_form_for(@post, remote: true) do |f|
+      = simple_form_for(@new_post, remote: true) do |f|
         .modal-body
           .errors.alert.alert-danger
           = f.input :youtube_url
           = f.input :user_id, as: :hidden
 
         .modal-footer
-          button.btn.btn-secondary data-dismiss="modal" type="button"  Close
-          = f.button :submit, class: 'btn btn-success', data: { disable_with: 'Sharing...' }
+          = f.button :submit, class: 'btn btn-info', data: { disable_with: 'Sharing...' }, value: 'Share Now'

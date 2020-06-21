@@ -30,7 +30,7 @@ gem 'simple_form' # form helper
 gem 'slim-rails' # template engine
 gem 'devise' # authentication
 gem 'figaro' # environment config
-gem 'rake', '< 11' # Removes a method that rspec-core < 3.4 depends on
+gem 'rake', '< 13' # Removes a method that rspec-core < 3.4 depends on
 gem 'nokogiri'
 
 # Reduces boot times through caching; required in config/boot.rb

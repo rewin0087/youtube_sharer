@@ -77,11 +77,6 @@ RSpec.describe 'Posts' do
       context 'with invalid youtube_url' do
         let(:youtube_url) { 'http://youtube.com/test' }
 
-        before do
-          sign_in user
-          post '/posts.js', params: params
-        end
-
         it 'be successful' do
           expect(response).to have_http_status :ok
           expect(response).to render_template('posts/create')
@@ -94,11 +89,7 @@ RSpec.describe 'Posts' do
 
       context 'with empty required params' do
         let(:youtube_url) { 'http://youtube.com/test' }
-
-        before do
-          sign_in user
-          post '/posts.js', params: { post: { user_id: nil, youtube_url: nil } }
-        end
+        let(:params) { { post: { user_id: nil, youtube_url: nil } } }
 
         it 'be successful' do
           expect(response).to have_http_status :ok
